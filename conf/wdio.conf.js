@@ -21,7 +21,7 @@ exports.config = {
   
     // Where the files we are testing can be found.
     specs: [
-        './test/specs/**/login.e2e.js'
+        './test/specs/**/siteAdmin.e2e.js'
     ],
   
     // The reporter is what formats your test results on the command line.
@@ -75,9 +75,13 @@ exports.config = {
             // to use the template override option, can point to your own file in the test project:
             // templateFilename: path.resolve(__dirname, '../src/wdio-html-reporter-alt-template.hbs')
         });
-        reportAggregator.clean() ;
+        reportAggregator.clean();
 
         global.reportAggregator = reportAggregator;
+
+        global.emailValueForNewUser;
+
+        global.userNameValue;
     },
 
     /**

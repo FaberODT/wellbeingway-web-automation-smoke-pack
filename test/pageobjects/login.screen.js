@@ -13,17 +13,17 @@ class loginScreen {
 
 
     enterEmailValue (emailId) {
-        this.emailTxtBox.waitForExist({timeout: 60000});
+        this.emailTxtBox.waitForExist({timeout: 10000});
         this.emailTxtBox.setValue(emailId);
     }
 
     enterPasswordValue (password) {
-        this.passwordTxtBox.waitForExist({timeout: 60000});
+        this.passwordTxtBox.waitForExist({timeout: 10000});
         this.passwordTxtBox.setValue(password);
     }
 
     clickOnLoginBtn () {
-        this.loginBtn.waitForExist({timeout: 60000});
+        this.loginBtn.waitForExist({timeout: 10000});
         this.loginBtn.click();
     }
 
@@ -34,7 +34,7 @@ class loginScreen {
     }
 
     assertLoginScreen () {
-        this.loginBtn.waitForExist({timeout: 60000});
+        this.loginBtn.waitForExist({timeout: 10000});
         expect(this.loginBtn.isDisplayed()).to.equal(true);
     }
 }
