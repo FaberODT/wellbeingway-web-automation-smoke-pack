@@ -9,6 +9,10 @@ class dashboardScreen {
 
     get pathWaysTab () { return $('//*[@id="header"]/div[2]/div/div/ul/li[2]/a')}
 
+    get sessionCalendarTab () { return $('//*[@id="header"]/div[2]/div/div/ul/li[1]/a')}
+
+    get forumModerationTab () { return $('//*[@id="header"]/div[2]/div/div/ul/li[4]/a')}
+
     get siteAdminMenu () { return $('//a[@data-key="sitesettings"]')}
 
     get actionMenuToggle () { return $('//a[@id="action-menu-toggle-1"]')}
@@ -23,6 +27,16 @@ class dashboardScreen {
     clickOnPathWaysTab () {
         this.pathWaysTab.waitForExist({timeout: 10000});
         this.pathWaysTab.click();
+    }
+
+    clickOnSessionCalendarTab () {
+        this.sessionCalendarTab.waitForExist({timeout: 10000});
+        this.sessionCalendarTab.click();
+    }
+
+    clickOnForumModerationTab() {
+        this.forumModerationTab.waitForExist({timeout: 10000});
+        this.forumModerationTab.click();
     }
 
     clickOnSiteAdminMenu () {

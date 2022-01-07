@@ -11,6 +11,15 @@ class searchedCourseScreen {
 
     get enrolUsersBtn () { return $('//input[@value="Enrol users"]')}
 
+    get editRolePensilBtnFromList () {return $('//table[@id="participants"]/tbody/tr[1]/td[5]/span/a') }
+    // /html/body/div[2]/div[3]/div/div/section/div/div/div[2]/div[3]/form/div/div[1]/div[3]/table/tbody/tr[1]/td[5]/span/a
+
+    get rolesDrdBtn () { return $('//span[@class="form-autocomplete-downarrow position-absolute p-1"]')}
+
+    get saveRoleIconBtn () { return $('//i[@title="Save changes"]')}
+
+    get rolesList () { return $('//table[@id="participants"]/tbody/tr[1]/td[5]/span/a')}
+
     get cohortSelection () { return $('//select[@id="id_cohortid"]')}
 
     get groupSelection () { return $('//select[@id="id_groupid"]')}
@@ -43,6 +52,30 @@ class searchedCourseScreen {
     clickOnEnrolUsersBtn () {
         this.enrolUsersBtn.waitForExist({timeout: 10000});
         this.enrolUsersBtn.click();
+    }
+
+    clickOnEditRolesPensilBtnFromList () {
+        this.editRolePensilBtnFromList.waitForExist({timeout: 10000});
+        this.editRolePensilBtnFromList.click();
+    }
+
+    selectRolesFromDrd() {
+        this.rolesDrdBtn.waitForExist({timeout: 10000});
+        this.rolesDrdBtn.click();
+        browser.pause(1000);
+        browser.keys('Enter');
+        browser.pause(1000);
+    }
+
+    clickOnSaveRoleIconBtn () {
+        this.saveRoleIconBtn.waitForExist({timeout: 10000});
+        this.saveRoleIconBtn.click();
+        browser.pause(2000);
+    }
+
+    assertAssignedRoles () {
+        this.rolesList.waitForExist({timeout : 10000});
+        expect(this.rolesList.getText()).to.contains("Manager");
     }
 
     /**
@@ -111,6 +144,17 @@ class searchedCourseScreen {
 
         //following method call will click on "Invite Patient by Email" button
         this.clickOnInviteByEmailBtn();
+    }
+
+    selectRoleForUserFromUserList () {
+        //following method call will click on Roles icon button of first User from the User List
+        this.clickOnEditRolesPensilBtnFromList();
+
+        //following method call will select the Role from the Roles drop down
+        this.selectRolesFromDrd();
+
+        //following method call will click on Save icon button
+        this.clickOnSaveRoleIconBtn();
     }
 
     getSuccessMsg () {
