@@ -13,6 +13,12 @@ class challengesLibraryScreen {
 
     get saveBtn () { return $('//input[@id="id_save"]')}
 
+    get successMsg () { return $('//div[@data-aria-autofocus="true"]')}
+
+    get editIconBtn () { return $$('//i[@title="Edit"]')}
+
+    get yesEditBtn () { return $('//button[@data-action="save"]')}
+
     clickOnAddChallengeBtn () {
         this.addChallengeBtn.waitForExist({timeout:10000});
         this.addChallengeBtn.click();
@@ -23,6 +29,11 @@ class challengesLibraryScreen {
         this.titleTxtBox.setValue(process.env.CHALLENGE_TITLE);
     }
 
+    editTitle () {
+        this.titleTxtBox.waitForExist({timeout: 10000});
+        this.titleTxtBox.setValue(process.env.CHALLENGE_TITLE1);
+    }
+
     enterDescription () {
         this.descTxtBox.waitForExist({timeout: 10000});
         this.descTxtBox.setValue(process.env.CHALLENGE_DESC);
@@ -31,6 +42,21 @@ class challengesLibraryScreen {
     clickOnSaveBtn () {
         this.saveBtn.waitForExist({timeout: 10000});
         this.saveBtn.click();
+    }
+
+    assertSuccessMsg () {
+        this.successMsg.waitForExist({timeout: 10000});
+        expect(this.successMsg.getText()).to.contains(process.env.SUCCESS_MSG);
+    }
+
+    clickOnEditLinkBtn () {
+        this.editIconBtn[0].waitForExist({timeout: 10000});
+        this.editIconBtn[0].click();
+    }
+
+    clickOnYesEditBtn () {
+        this.yesEditBtn.waitForExist({timeout: 10000});
+        this.yesEditBtn.click();
     }
 
     addNewChallenge () {
@@ -44,6 +70,20 @@ class challengesLibraryScreen {
         this.enterDescription();
 
         //following method call will click on Save button
+        this.clickOnSaveBtn();
+    }
+
+    editChallenge() {
+        //following method call will click on "Edit" icon button of first challenge
+        this.clickOnEditLinkBtn();
+
+        //following method call will click on "Yes Edit" button from confirmation pop-up
+        this.clickOnYesEditBtn();
+
+        //following will update the title value
+        this.editTitle();
+
+        //following will click on "Save" button
         this.clickOnSaveBtn();
     }
 }

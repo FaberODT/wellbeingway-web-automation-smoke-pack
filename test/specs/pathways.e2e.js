@@ -25,85 +25,85 @@ describe('verify the test cases relating Pathways tab', () => {
         dashboardScreen.performLogout();
     });
 
-    // it('C57619 - Verify Invite User with Email', () => {
-    //     //following will click on "Pathways" tab
-    //     dashboardScreen.clickOnPathWaysTab();
+    it('C57619 - Verify Invite User with Email', () => {
+        //following will click on "Pathways" tab
+        dashboardScreen.clickOnPathWaysTab();
 
-    //     //following will assert that user is on Pathways page
-    //     pathWaysScreen.assertPathWayPage();
+        //following will assert that user is on Pathways page
+        pathWaysScreen.assertPathWayPage();
 
-    //     //following will search for the specific course name
-    //     pathWaysScreen.searchCourse();
+        //following will search for the specific course name
+        pathWaysScreen.searchCourse();
 
-    //     //following will click On searched course name
-    //     pathwaysScreen.clickOnSearchedCourseName();
+        //following will click On searched course name
+        pathwaysScreen.clickOnSearchedCourseName();
 
-    //     //following will click On "Participant" menu option
-    //     searchedCourseScreen.clickOnParticipantTab();
+        //following will click On "Participant" menu option
+        searchedCourseScreen.clickOnParticipantTab();
 
-    //     //following will click on "Invite Patient" button
-    //     searchedCourseScreen.clickOnInvitePatientButton();
+        //following will click on "Invite Patient" button
+        searchedCourseScreen.clickOnInvitePatientButton();
 
-    //     //following will fill out details for Inviting patient by email
-    //     searchedCourseScreen.addPatientByEmail();
+        //following will fill out details for Inviting patient by email
+        searchedCourseScreen.addPatientByEmail();
 
-    //     //following will assert the success message
-    //     searchedCourseScreen.getSuccessMsg();
-    // });
+        //following will assert the success message
+        searchedCourseScreen.getSuccessMsg();
+    });
 
-    // it('C57621 - Verify Forget User name', () => {
-    //     //following will click on "Pathways" tab
-    //     dashboardScreen.clickOnPathWaysTab();
+    it('C57621 - Verify Forget User name', () => {
+        //following will click on "Pathways" tab
+        dashboardScreen.clickOnPathWaysTab();
 
-    //     //following will assert that user is on Pathways page
-    //     pathWaysScreen.assertPathWayPage();
+        //following will assert that user is on Pathways page
+        pathWaysScreen.assertPathWayPage();
 
-    //     //following will search for the specific course name
-    //     pathWaysScreen.searchCourse();
+        //following will search for the specific course name
+        pathWaysScreen.searchCourse();
 
-    //     //following will click On searched course name
-    //     pathwaysScreen.clickOnSearchedCourseName();
+        //following will click On searched course name
+        pathwaysScreen.clickOnSearchedCourseName();
 
-    //     //following will click On "Participant" menu option
-    //     searchedCourseScreen.clickOnParticipantTab();
+        //following will click On "Participant" menu option
+        searchedCourseScreen.clickOnParticipantTab();
 
-    //     //following will select the very first User from the list
-    //     pathwaysScreen.clickOnFirstUser();
+        //following will select the very first User from the list
+        pathwaysScreen.clickOnFirstUser();
 
-    //     //following will click on "Forgot Username" link button
-    //     pathWaysScreen.clickOnForgotUserNameLinkBtn();
+        //following will click on "Forgot Username" link button
+        pathWaysScreen.clickOnForgotUserNameLinkBtn();
 
-    //     //following will assert the success message on the page
-    //     pathWaysScreen.assertFogotUserNameMsg();
+        //following will assert the success message on the page
+        pathWaysScreen.assertFogotUserNameMsg();
 
-    // });
+    });
 
-    // it('C57622 - Verify Forget Password', () => {
-    //     //following will click on "Pathways" tab
-    //     dashboardScreen.clickOnPathWaysTab();
+    it('C57622 - Verify Forget Password', () => {
+        //following will click on "Pathways" tab
+        dashboardScreen.clickOnPathWaysTab();
 
-    //     //following will assert that user is on Pathways page
-    //     pathWaysScreen.assertPathWayPage();
+        //following will assert that user is on Pathways page
+        pathWaysScreen.assertPathWayPage();
 
-    //     //following will search for the specific course name
-    //     pathWaysScreen.searchCourse();
+        //following will search for the specific course name
+        pathWaysScreen.searchCourse();
 
-    //     //following will click On searched course name
-    //     pathwaysScreen.clickOnSearchedCourseName();
+        //following will click On searched course name
+        pathwaysScreen.clickOnSearchedCourseName();
 
-    //     //following will click On "Participant" menu option
-    //     searchedCourseScreen.clickOnParticipantTab();
+        //following will click On "Participant" menu option
+        searchedCourseScreen.clickOnParticipantTab();
 
-    //     //following will select the very first User from the list
-    //     pathwaysScreen.clickOnFirstUser();
+        //following will select the very first User from the list
+        pathwaysScreen.clickOnFirstUser();
 
-    //     //following will click on "Forgot Password" link button
-    //     pathWaysScreen.clickOnForgotPasswordLinkBtn();
+        //following will click on "Forgot Password" link button
+        pathWaysScreen.clickOnForgotPasswordLinkBtn();
 
-    //     //following will assert the success message on the page
-    //     pathWaysScreen.assertForgotPasswordMsg();
+        //following will assert the success message on the page
+        pathWaysScreen.assertForgotPasswordMsg();
 
-    // });
+    });
 
     it('C57729 - Verify change role of the User', () => {
         //following will click on "Pathways" tab

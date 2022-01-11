@@ -23,6 +23,8 @@ class siteAdminScreen {
 
     get challengesLibraryLinkBtn () { return $('//*[@id="linkroot"]/div/div[3]/div[2]/ul/li[1]/a')}
 
+    get challengeCourseLinkBtn () { return $('//*[@id="linkroot"]/div/div[3]/div[2]/ul/li[2]/a')}
+
     assertSiteAdminPage () {
         this.siteAdminTab.waitForExist({timeout: 10000});
         expect(this.siteAdminTab.isDisplayed()).to.equal(true);
@@ -66,6 +68,11 @@ class siteAdminScreen {
     clickOnChallengesLibraryLinkBtn () {
         this.challengesLibraryLinkBtn.waitForExist({timeout: 10000});
         this.challengesLibraryLinkBtn.click();
+    }
+
+    clickOnChallengeCourseLinkBtn () {
+        this.challengeCourseLinkBtn.waitForExist({timeout: 10000});
+        this.challengeCourseLinkBtn.click();
     }
 }
 

@@ -2,6 +2,7 @@ require('dotenv').config();
 const { assert, expect } = require('chai');
 const loginScreen = require('../pageobjects/login.screen');
 const dashboardScreen = require('../pageobjects/dashboard.screen');
+const forumModerationScreen = require('../pageobjects/forumModeration.screen');
 
 describe('verify the test cases relating Site Administrator Menu', () => {
 
@@ -22,6 +23,22 @@ describe('verify the test cases relating Site Administrator Menu', () => {
     });
 
     it('C57731 - Verify update status of the moderation', () => {
-        
+        //following will click on "Forum Moderation" tab
+        dashboardScreen.clickOnForumModerationTab();
+
+        //following will assert the Forum Moderation page
+        forumModerationScreen.assertForumModerationPage();
+
+        //following will delete the first post from the list
+        forumModerationScreen.deletePost();
+
+        //following will assert the deleted post count after deleting the post
+        forumModerationScreen.assertPostCountAfterDelete();
+
+        //following will repost the post
+        forumModerationScreen.restorePost();
+
+        //following will assert the post count after repost
+        forumModerationScreen.assertPostCountAfterRepost();
     });
 });
