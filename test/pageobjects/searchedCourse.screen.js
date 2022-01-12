@@ -5,6 +5,8 @@ const expect = require("chai").expect;
 */
 class searchedCourseScreen {
 
+    get turnEditingOnBtn () { return $('//form[@method="post"]/button')}
+
     get participantTab () { return $('//*[@id="nav-drawer"]/nav[1]/ul/li[2]/a/div/div/span[2]')}
 
     get invitePatientBtn () { return $('//input[@value="Invite patient"]')}
@@ -38,6 +40,11 @@ class searchedCourseScreen {
 
     x = Math.floor((Math.random() * 10000000) + 1);
     emailValue = "test" + this.x + "@test.com";
+
+    clickOnTurnEditingOnBtn () {
+        this.turnEditingOnBtn.waitForExist({timeout: 10000});
+        this.turnEditingOnBtn.click();
+    }
 
     clickOnParticipantTab () {
         this.participantTab.waitForExist({timeout: 10000});

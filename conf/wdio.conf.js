@@ -21,7 +21,7 @@ exports.config = {
   
     // Where the files we are testing can be found.
     specs: [
-        './test/specs/**/siteAdmin.e2e.js'
+        './test/specs/**/pathways.e2e.js'
     ],
   
     // The reporter is what formats your test results on the command line.
