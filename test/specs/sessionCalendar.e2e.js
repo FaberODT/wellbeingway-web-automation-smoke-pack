@@ -3,6 +3,7 @@ const { assert, expect } = require('chai');
 const loginScreen = require('../pageobjects/login.screen');
 const dashboardScreen = require('../pageobjects/dashboard.screen');
 const sessionCalendarScreen = require('../pageobjects/sessionCalendar.screen');
+const createSessionScreen = require('../pageobjects/sessionCalendar_CreateSession.screen');
 
 describe('verify the test cases relating Site Calendar Tab', () => {
 
@@ -48,5 +49,25 @@ describe('verify the test cases relating Site Calendar Tab', () => {
 
         //following will assert that unavailability has been applied
         sessionCalendarScreen.assertReasonText();
+    });
+    
+    it('C57722 - Verify creating single session', () => {
+        //following will click on "Session Canledar" tab
+        dashboardScreen.clickOnSessionCalendarTab();
+
+        //following will assert that user is on Session Calendar page
+        sessionCalendarScreen.assertSessionCalendarPage();
+
+        //following will click on "Create Session" button
+        sessionCalendarScreen.clickOnCreateSessionBtn();
+
+        //following will add new session
+        createSessionScreen.addSession();
+
+        //following will select the coach
+        sessionCalendarScreen.selectCoach();
+
+        //following will assert newly added session on Calendar
+        createSessionScreen.assertEventName();
     });
 });

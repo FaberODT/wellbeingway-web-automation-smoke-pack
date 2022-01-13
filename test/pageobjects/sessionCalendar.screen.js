@@ -7,6 +7,8 @@ class sessionCalendarScreen {
 
     get sessionCalendarLbl () { return $('//div[@role="main"]/h2')}
 
+    get createSessionBtn () { return $('//button[@class="fc-createSingleSession-button fc-button fc-button-primary"]')}
+
     get unavailableBtn () { return $('//div[@id="session-calendar"]/div/div[3]/button[3]')}
 
     get reasonDrd () { return $('//select[@name="reason"]')}
@@ -21,7 +23,10 @@ class sessionCalendarScreen {
 
     get reasonText () { return $('//div[@class="fc-event-title fc-sticky"]')}
 
+    get coachDrd () { return $('//select[@id="id_coachid"]')}
+
     assertSessionCalendarPage() {
+        browser.pause(5000);
         this.sessionCalendarLbl.waitForExist({timeout: 10000});
         expect(this.sessionCalendarLbl.isDisplayed()).to.equal(true);
     }
@@ -30,6 +35,12 @@ class sessionCalendarScreen {
         this.unavailableBtn.waitForExist({timeout: 10000});
         console.log("button name: " + this.unavailableBtn.getText());
         this.unavailableBtn.click();
+    }
+
+    clickOnCreateSessionBtn () {
+        this.createSessionBtn.waitForExist({timeout: 10000});
+        console.log("Button name is: " + this.createSessionBtn.getText());
+        this.createSessionBtn.click();
     }
 
     clickOnSpecificTimeRadioBtn () {
@@ -78,6 +89,12 @@ class sessionCalendarScreen {
         //following method call will click on Update Unavailability button
         this.clickOnUpdateAvailabilityBtn();
         browser.pause(1000);
+    }
+
+    selectCoach () {
+        this.coachDrd.waitForExist({timeout: 10000});
+        this.coachDrd.selectByVisibleText(process.env.SESSION_COACH);
+        browser.pause(5000);
     }
 
     applyUnavailabilityForSpecificTime () {
