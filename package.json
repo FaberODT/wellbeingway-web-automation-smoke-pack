@@ -1,5 +1,5 @@
 {
-  "name": "qn-app-smoke-pack",
+  "name": "WellBeingWay-smoke-pack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "iOS": "npx wdio conf/kobiton_iOS.conf.js iOS",
     "sendMail": "node test/helper/sendMail.js",
     "generateReport": "node test/helper/generateReport.js",
-    "pretest": "mocha test/helper/setupUser.js --timeout 5000 --recursive"
+    "bs": "npx wdio conf/bs.conf.js"
   },
   "repository": {
     "type": "git",

@@ -70,4 +70,44 @@ describe('verify the test cases relating Site Calendar Tab', () => {
         //following will assert newly added session on Calendar
         createSessionScreen.assertEventName();
     });
+
+    it('C57726 - Verify cancel single day session', () => {
+        //following will click on "Session Canledar" tab
+        dashboardScreen.clickOnSessionCalendarTab();
+
+        //following will assert that user is on Session Calendar page
+        sessionCalendarScreen.assertSessionCalendarPage();
+
+        //following will select the coach
+        sessionCalendarScreen.selectCoach();
+
+        //following will click on added event
+        sessionCalendarScreen.clickOnEventName();
+
+        //following will click on "Cancel Session" button
+        sessionCalendarScreen.clickOnCancelSessionBtn();
+
+        //following will click on "Cancel Session" button from opened pop-up
+        sessionCalendarScreen.clickOnCancelSingleSessionBtn();
+    });
+    
+    // it('C57726 - Verify cancel whole day session', () => {
+    //     //following will click on "Session Canledar" tab
+    //     dashboardScreen.clickOnSessionCalendarTab();
+
+    //     //following will assert that user is on Session Calendar page
+    //     sessionCalendarScreen.assertSessionCalendarPage();
+
+    //     //following will select the coach
+    //     sessionCalendarScreen.selectCoach();
+
+    //     //following will click on added event
+    //     sessionCalendarScreen.clickOnEventName();
+
+    //     //following will click on "Cancel Session" button
+    //     sessionCalendarScreen.clickOnCancelSessionBtn();
+
+    //     //following will click on "whole Session" button from opened pop-up
+    //     sessionCalendarScreen.clickOnCancelWholeDaySessionBtn();
+    // });
 });

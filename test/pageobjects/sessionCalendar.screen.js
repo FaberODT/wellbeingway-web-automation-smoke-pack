@@ -25,6 +25,60 @@ class sessionCalendarScreen {
 
     get coachDrd () { return $('//select[@id="id_coachid"]')}
 
+    get eventName () { return $$('//div[@class="fc-event-title fc-sticky"]')}
+
+    get cancelSessionsBtn () { return $('//button[@class="btn btn-danger"]')}
+
+    get cancelSingleSessionBtn () { return $('//button[@rel="cancel-single"]')}
+
+    get cancelWholeSessionBtn () { return $('//button[@rel="cancel-day"]')}
+
+    eventName_Flag = false;
+    event ="";
+
+    clickOnEventName () {
+        browser.pause(3000);
+        this.eventName[0].waitForExist({timeout: 10000});
+        console.log("total dsplayed events are: " + this.eventName.length);
+        for(let i = 0; i < this.eventName.length; i++){
+            console.log("event names are: " + this.eventName[i].getText());
+            console.log("env value is: " + process.env.CREATE_SESSION_TITLE);
+            this.event = this.eventName[i].getText()
+            if(expect(this.event).to.contains(process.env.CREATE_SESSION_TITLE)) {
+                this.eventName_Flag = true;
+                this.eventName[i].click();
+                break;
+            }
+            else{
+                this.eventName_Flag = false;
+            }
+        }
+        if(this.eventName_Flag == true){
+            expect(true).to.equal(true);
+            console.log("Clicked on session");
+        }else{
+            expect(true).to.equal(false);
+            console.log("Such session is not displaying on the Calendar");
+        }
+    }
+
+    clickOnCancelSessionBtn () {
+        this.cancelSessionsBtn.waitForExist({timeout: 10000});
+        this.cancelSessionsBtn.click();
+        browser.pause(2000);
+    }
+
+    clickOnCancelSingleSessionBtn () {
+        this.cancelSingleSessionBtn.waitForExist({timeout: 10000});
+        this.cancelSingleSessionBtn.click();
+        browser.pause(2000);
+    }
+
+    clickOnCancelWholeDaySessionBtn () {
+        this.cancelWholeSessionBtn.waitForExist({timeout: 10000});
+        this.cancelWholeSessionBtn.click();
+    }
+
     assertSessionCalendarPage() {
         browser.pause(5000);
         this.sessionCalendarLbl.waitForExist({timeout: 10000});
@@ -65,8 +119,8 @@ class sessionCalendarScreen {
     selectReason () {
         this.reasonDrd.waitForExist({timeout: 10000});
         this.reasonDrd.click();
-        browser.pause(1000);
-        this.reasonDrd.selectByAttribute("value", process.env.REASON_TEXT);
+        browser.pause(2000);
+        this.reasonDrd.selectByAttribute("value", process.env.SESSION_REASON_TEXT);
     }
 
     clickOnUpdateAvailabilityBtn () {
@@ -76,7 +130,7 @@ class sessionCalendarScreen {
 
     assertReasonText () {
         this.reasonText.waitForExist({timeout: 10000});
-        expect(this.reasonText.getText()).to.contains(process.env.REASON_TEXT);
+        expect(this.reasonText.getText()).to.contains(process.env.SESSION_REASON_TEXT);
     }
 
     applyUnavailabilityForWholeDay(){

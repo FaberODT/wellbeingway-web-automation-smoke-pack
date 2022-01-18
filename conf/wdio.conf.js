@@ -78,10 +78,6 @@ exports.config = {
         reportAggregator.clean();
 
         global.reportAggregator = reportAggregator;
-
-        global.emailValueForNewUser;
-
-        global.userNameValue;
     },
 
     /**

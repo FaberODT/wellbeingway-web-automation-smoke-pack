@@ -84,21 +84,20 @@ class createSessionScreen {
         console.log("total dsplayed events are: " + this.eventName.length);
         for(let i = 0; i < this.eventName.length; i++){
             console.log("event names are: " + this.eventName[i].getText());
-        //     if((this.eventName[i].getText()).to.contains(process.env.CREATE_SESSION_TITLE)) {
-        //         this.eventName_Flag = true;
-        //         break;
-        //     }
-        //     else{
-        //         this.eventName_Flag = false;
-        //     }
-        // }
-        // if(this.eventName_Flag == true){
-        //     expect(true).to.equal(true);
-        //     console.log("Added session is displaying on the Calendar");
-        // }else{
-        //     expect(true).to.equal(false);
-        //     console.log("Added session is not displaying on the Calendar");
-        // }
+            if(expect(this.eventName[i].getText()).to.contains(process.env.CREATE_SESSION_TITLE)) {
+                this.eventName_Flag = true;
+                break;
+            }
+            else{
+                this.eventName_Flag = false;
+            }
+        }
+        if(this.eventName_Flag == true){
+            expect(true).to.equal(true);
+            console.log("Added session is displaying on the Calendar");
+        }else{
+            expect(true).to.equal(false);
+            console.log("Added session is not displaying on the Calendar");
         }
     }
 

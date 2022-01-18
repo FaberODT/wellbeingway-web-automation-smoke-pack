@@ -46,7 +46,7 @@ class challengesLibraryScreen {
 
     assertSuccessMsg () {
         this.successMsg.waitForExist({timeout: 10000});
-        expect(this.successMsg.getText()).to.contains(process.env.SUCCESS_MSG);
+        expect(this.successMsg.getText()).to.contains(process.env.LIBRARY_SUCCESS_MSG);
     }
 
     clickOnEditLinkBtn () {
